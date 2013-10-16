@@ -1,8 +1,9 @@
 Vagrant::Config.run do |config|
-  config.vm.box = 'raring64'
-  config.vm.box_url = 'http://goo.gl/Y4aRr'
-  config.vm.provision :puppet,
-    :module_path => 'modules' do |puppet|
-      puppet.manifest_file = 'manifest.pp'
-  end
+  config.vm.box = 'ubuntu_12.04_min'
+  config.vm.box_url = 'http://puppet-vagrant-boxes.puppetlabs.com/ubuntu-server-12042-x64-vbox4210.box'
+  config.vm.provision :puppet do |puppet|
+    puppet.manifests_path = "manifests"
+    puppet.manifest_file = "default.pp"
+  end 
+  config.vm.provision :puppet, :module_path => "modules"
 end
