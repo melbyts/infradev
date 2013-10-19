@@ -7,3 +7,8 @@ Vagrant::Config.run do |config|
   end 
   config.vm.provision :puppet, :module_path => "modules"
 end
+
+Vagrant.configure("2") do |config|
+  config.vm.synced_folder "~/Code", "/code"
+end
+
